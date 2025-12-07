@@ -1,68 +1,78 @@
-# 📚 SIMAPRO — Sistem Manajemen Program & Administrasi
+# 🧠 ABSA Model Using ALBERT — Sentiment Analysis for Bukalapak Reviews
 
-SIMAPRO (**Sistem Manajemen Program**) adalah aplikasi berbasis web yang dibuat untuk membantu organisasi, lembaga pendidikan, instansi pemerintah atau perusahaan dalam mengelola data program, aktivitas, pengguna, dan administrasi secara lebih rapi, terpusat, dan otomatis — **tanpa perlu instalasi aplikasi tambahan.**
-
----
-
-## 🔗 Quick Access
-
-| Kebutuhan | Status |
-|----------|--------|
-| 📖 Dokumentasi Instalasi | ✔️ Available |
-| 💾 Struktur File & Arsitektur | ✔️ Available |
-| 🔧 Troubleshooting | 🚧 Coming Soon |
-| 📧 Panduan Email Notification | 🚧 Coming Soon |
-| 🔐 Role & User Permission Guide | ✔️ Available |
+Repository ini berisi proyek pembuatan model **Aspect-Based Sentiment Analysis (ABSA)** menggunakan **ALBERT (A Lite BERT)**. Model ini dilatih menggunakan dataset ulasan konsumen dari platform **Bukalapak**, dengan tujuan mengklasifikasikan sentimen berdasarkan aspek tertentu dalam teks.
 
 ---
 
-## ✨ Fitur Utama
+## 📂 Dataset
 
-### 🎓 Untuk Admin
+Dataset yang digunakan sudah tersedia di dalam repository, terdiri dari:
 
-- 🏷️ **Manajemen Program**
-  - Tambah, edit, arsipkan atau hapus program
-- 👥 **Manajemen User & Role**
-  - Atur hak akses berdasarkan role: Admin, Staff, Viewer
-- 📊 **Dashboard Interactive**
-  - Statistik jumlah user, program aktif, dokumen, dan aktivitas terakhir
-- 🗃️ **Kategori & Hierarki**
-  - Program dapat dikelompokkan per divisi/kategori
-- ✍️ **Audit & Log Aktivitas**
-  - Setiap perubahan tercatat untuk keamanan
-- 📝 **Export Data**
-  - Download format XLS/CSV untuk laporan
+| File | Deskripsi | Proporsi |
+|------|-----------|----------|
+| `train_70.csv` | Data pelatihan model | 70% |
+| `test_30.csv` | Data pengujian model | 30% |
 
----
+Format dataset mengikuti struktur:
 
-### 👤 Untuk Pengguna
-
-- 🔍 Pencarian cepat berdasarkan nama program, kategori, atau owner
-- 📨 Notifikasi real-time (email/popup)
-- 📁 Upload & akses file pendukung program
-- 📄 Tampilan yang responsif untuk mobile & desktop
+| Column | Deskripsi |
+|--------|-----------|
+| `text` | Ulasan dari pengguna Bukalapak |
+| `aspect` | Aspek yang ingin dianalisis |
+| `label` | Sentimen (Positive, Negative, Neutral) |
 
 ---
 
-## 🧱 Teknologi yang Digunakan
+## 🧩 Model
 
-| Layer | Teknologi |
-|-------|-----------|
-| 💻 UI / Frontend | HTML, CSS, JavaScript, TailwindCSS |
-| ⚙ Server / Backend | Node.js *(update jika pakai framework tertentu)* |
-| 🗄 Database | MySQL / SQLite / Firebase *(sesuaikan)* |
-| 🧪 Development Tools | Git, GitHub, VS Code |
+Model yang digunakan adalah:
 
-> ✏️ *Silakan edit sesuai teknologi yang kamu pakai.*
+ALBERT-base
+
+**Kenapa ALBERT?**
+
+- Lebih ringan dibanding BERT
+- Akurasi tinggi pada tugas NLP Bahasa Indonesia setelah fine-tuning
+- Lebih efisien dalam memori dan waktu training
 
 ---
 
-## 🚀 Instalasi & Menjalankan
+## 🚀 Training Workflow
 
-> Pastikan **Node.js** & **Git** telah terpasang.
+Seluruh pipeline dapat dijalankan dari file berikut:
+Albert.ipynb
 
-### 1️⃣ Clone Repository
+Isi utama notebook mencakup:
+
+- Import data
+- Preprocessing & tokenization
+- Fine-tuning ALBERT
+- Evaluasi performa model menggunakan:
+  - Accuracy
+  - Precision, Recall, F1-Score
+  - Confusion Matrix
+
+---
+
+## 📈 Hasil Model
+
+> **(Update angka setelah evaluasi final)**
+
+| Metric | Score |
+|--------|-------|
+| Accuracy |  0.92  |
+| Precision | — |
+| Recall | — |
+| F1-Score | — |
+
+---
+
+## 🏁 Cara Menjalankan
+
+### 1️⃣ Clone repository
 
 ```bash
-git clone https://github.com/rayyan-210/SIMAPRO.git
-cd SIMAPRO
+git clone https://github.com/rayyan-210/Model-Albert.git
+
+
+
